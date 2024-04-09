@@ -2,6 +2,8 @@
 
 . ./versions.sh
 
+mkdir -p sources
+
 extract() {
 tar xf downloads/$1 -C sources
 }

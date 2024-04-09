@@ -2,7 +2,7 @@
 mkdir -p downloads
 
 dl() {
-(cd downloads && curl -LO $1)
+(cd downloads && curl -C- -LO $1)
 }
 
 . ./versions.sh
