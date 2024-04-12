@@ -1,0 +1,30 @@
+#!/bin/sh
+mount -t devtmpfs none /dev
+mount -t proc proc /proc
+mount -t sysfs none /sys
+mkdir -p /dev/pts
+mount -t devpts devpts /dev/pts
+mkdir -p /dev/shm
+mdev -s
+mkdir -p /rom
+mkdir -p /rootfs
+mkdir -p /overlay
+mount / /rom
+mount -o remount,ro /rom
+STATEFUL=/dev/sda1
+if [ -e \$STATEFUL ]; then
+mount \$STATEFUL /overlay || mount -t tmpfs none /overlay
+else
+mount -t tmpfs none /overlay
+fi
+mkdir -p /overlay/upper
+mkdir -p /overlay/work
+#exec /sbin/init
+mount -t overlay overlay -o lowerdir=/rom,upperdir=/overlay/upper,workdir=/overlay/work /rootfs
+#exec /sbin/init
+mount --move /rom /rootfs/rom
+mount --move /overlay /rootfs/overlay
+mount --move /dev /rootfs/dev
+mount --move /proc /rootfs/proc
+mount --move /sys /rootfs/sys
+exec chroot /rootfs sh -c "rmdir rootfs;/sbin/init"
