@@ -11,9 +11,9 @@ mkdir -p /rootfs
 mkdir -p /overlay
 mount / /rom
 mount -o remount,ro /rom
-STATEFUL=/dev/sda1
-if [ -e \$STATEFUL ]; then
-mount \$STATEFUL /overlay || mount -t tmpfs none /overlay
+STATEFUL=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
+if [ -e $STATEFUL ]; then
+mount $STATEFUL /overlay || mount -t tmpfs none /overlay
 else
 mount -t tmpfs none /overlay
 fi
