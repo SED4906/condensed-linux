@@ -10,8 +10,6 @@ ln -sf usr/bin
 ln -sf usr/sbin
 ln -sf usr/lib
 ln -sf usr/lib64
-cp -af ../sources/${BUSYBOX_OUT}/_install/bin/* bin
-cp -af ../sources/${BUSYBOX_OUT}/_install/sbin/* sbin
 cp -arf ../defaults/* ./
 chmod +x init
 chmod +x etc/init.d/rcS
