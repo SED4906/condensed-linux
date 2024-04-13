@@ -11,3 +11,5 @@ BUSYBOX_URL="https://busybox.net/downloads/${BUSYBOX_OUT}.tar.bz2"
 MUSL_VERSION='1.2.5'
 MUSL_OUT="musl-${MUSL_VERSION}"
 MUSL_URL="http://musl.libc.org/releases/${MUSL_OUT}.tar.gz"
+
+LIMINE_VERSION='7.3.1'
