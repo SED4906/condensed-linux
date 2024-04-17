@@ -1,5 +1,5 @@
 #!/bin/sh
-LINUX_VERSION='6.6.27'
+LINUX_VERSION='6.6.28'
 LINUX_MAJOR=`echo $LINUX_VERSION | cut -d. -f1`
 LINUX_OUT="linux-${LINUX_VERSION}"
 LINUX_URL="https://cdn.kernel.org/pub/linux/kernel/v${LINUX_MAJOR}.x/${LINUX_OUT}.tar.xz"

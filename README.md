@@ -19,4 +19,4 @@ The `root=/dev/(device)` option may be specified on the kernel command line, and
 ```
 ./run.sh
 ```
-Requires QEMU and the OVMF images. Extra options to run.sh are passed to QEMU.
+Requires QEMU. Extra options to run.sh are passed to QEMU.
