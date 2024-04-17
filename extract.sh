@@ -5,6 +5,7 @@
 mkdir -p sources
 
 extract() {
+echo "Extracting $1"
 tar xf downloads/$1 -C sources
 }
 

@@ -2,6 +2,7 @@
 mkdir -p downloads
 
 dl() {
+echo "Downloading $1"
 (cd downloads && curl -C- -LO $1)
 }
 
